@@ -125,6 +125,15 @@
         function muestraContenido() {
             if (peticion_http.readyState == READY_STATE_COMPLETE) {
                 if (peticion_http.status == HTTP_STATUS_OK) {
+                    let divHeaders = document.getElementById("cabeceras")
+                    divHeaders.innerHTML = peticion_http.getAllResponseHeaders();
+
+                    let divStatus = document.getElementById("estados");
+                    divStatus.innerHTML = peticion_http.readyState;
+
+                    let divCode = document.getElementById("codigo");
+                    divCode.innerHTML = peticion_http.status + " - " + peticion_http.statusText;
+
                     let divToWrite = document.getElementById("contenidos")
                     divToWrite.innerHTML = peticion_http.responseText;
                 }
@@ -134,6 +143,7 @@
         function descargaArchivo() {
             cargaContenido("http://localhost:8080/ejercicio3.php", "GET", muestraContenido);
         }
+
 
 
 
