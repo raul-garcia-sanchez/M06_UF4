@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <title>API EXTERN</title>
+    <title>API EXTERNA</title>
     <style>
         button {
             background-color: #4CAF50;
@@ -52,7 +52,7 @@
 <body>
 
     <h1>Ejercicio API EXTERNA</h1>
-    <button id="button">Clica para recuperar categorias de ChuckNorris</button>
+    <button id="button">Clica para recuperar una frase de ChuckNorris</button>
     <br>
     <br>
 
@@ -67,7 +67,9 @@
         </tr>
     </table>
     
-    <script src="index.js"></script>
+    <script src="./EjercicioAPIExterna/index.js">
+
+    </script>
 
 </body>
 
