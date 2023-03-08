@@ -1,5 +1,47 @@
-<?php
+<!DOCTYPE html>
+<html>
 
-echo "Hola soy Raúl García Sánchez";
+<head>
+    <meta charset="UTF-8">
+    <title>Server Data Page</title>
+</head>
 
-?>
+<body>
+    <h1>Server Data Page</h1>
+    <div id="data-container"></div>
+    <script>
+        const loadJSON = (file) => {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', file, true);
+                xhr.responseType = 'json';
+                xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        resolve(xhr.response);
+                    } else {
+                        reject(xhr.statusText);
+                    }
+                };
+                xhr.onerror = () => reject(xhr.statusText);
+                xhr.send();
+            });
+        };
+
+        // Call the server to get some data
+        loadJSON("ej3API.php")
+            .then((data) => {
+                console.log("data", data)
+                // Display the data in the page
+                const container = document.getElementById('data-container');
+                container.innerHTML = `
+            <h2>Data from Server:</h2>
+            <p>${data}</p>
+          `;
+            })
+            .catch((error) => {
+                console.error('Error loading data:', error);
+            });
+    </script>
+</body>
+
+</html>
