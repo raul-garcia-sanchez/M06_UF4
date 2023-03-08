@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Load Data</title>
+  </head>
+  <body>
+    <script>
+      const loadJSON = (file) => {
+        return new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open("GET", file, true);
+          xhr.responseType = "json";
+          xhr.onload = () => {
+            if (xhr.status === 200) {
+              resolve(xhr.response);
+            } else {
+              reject(xhr.statusText);
+            }
+          };
+          xhr.onerror = () => reject(xhr.statusText);
+          xhr.send();
+        });
+      };
+      loadJSON("http://localhost:8080/ej2.php").then((result) => {
+        console.log(result);
+      });
+    </script>
+  </body>
+</html>
