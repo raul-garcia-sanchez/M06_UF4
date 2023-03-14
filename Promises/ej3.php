@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Server Data Page</title>
+    <title>Promise Intern API</title>
 </head>
 
 <body>
-    <h1>Server Data Page</h1>
+    <h1>Server Promise</h1>
     <div id="data-container"></div>
     <script>
         const loadJSON = (file) => {
@@ -27,11 +27,9 @@
             });
         };
 
-        // Call the server to get some data
         loadJSON("ej3API.php")
             .then((data) => {
                 console.log("data", data)
-                // Display the data in the page
                 const container = document.getElementById('data-container');
                 container.innerHTML = `
             <h2>Data from Server:</h2>
